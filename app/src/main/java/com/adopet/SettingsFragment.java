@@ -16,6 +16,7 @@ public class SettingsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        getChildFragmentManager().beginTransaction().add(R.id.settings_container, new SettingsList()).commit();
         return inflater.inflate(R.layout.fragment_settings, container,false);
     }
 }

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AdoPet</string>
+    <string-array name="languagesEntries">
+        <item>עברית</item>
+    </string-array>
+    <string-array name="languagesValues">
+        <item>עברית</item>
+    </string-array>
 </resources>

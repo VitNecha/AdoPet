@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="settingsScr"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+    <ListPreference
+        android:key="settingKList"
+        android:title="שפה"
+        android:icon="@drawable/globe_25"
+        android:entries="@array/languagesEntries"
+        android:entryValues="@array/languagesValues"
+        android:defaultValue="עברית" />
+    <Preference
+        android:title="דרגו את האפליקציה!"
+        android:icon="@drawable/star_half_empty_25"/>
+    <Preference
+        android:title="מידע על האפליקציה"
+        android:icon="@drawable/info_squared_25"/>
+</PreferenceScreen>

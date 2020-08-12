@@ -3,8 +3,11 @@ package com.adopet;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.Layout;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 
 import com.example.adopet.R;
@@ -27,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                     selectedTab = new InfoFragment();
                     break;
                 case R.id.navigation_settings:
-                    selectedTab = new SearchFragment();
+                    selectedTab = new SettingsFragment();
                     break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.main_container, selectedTab).commit();
