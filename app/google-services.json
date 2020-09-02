@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "418096913149",
+    "firebase_url": "https://adopetdb.firebaseio.com",
+    "project_id": "adopetdb",
+    "storage_bucket": "adopetdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418096913149:android:00719452e2e8d40f26bc94",
+        "android_client_info": {
+          "package_name": "com.example.adopet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418096913149-efg0drh5c8st47p17us0nd1g9ed7710a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.adopet",
+            "certificate_hash": "975f7d98a8f3a3899e36e5b813f256be8b7e3012"
+          }
+        },
+        {
+          "client_id": "418096913149-t3a5m09mf7q6vr1rlic0ls47ag12v3vm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7bvWWDM8G4l07J1OZK9ITjpaeCgrpEiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418096913149-t3a5m09mf7q6vr1rlic0ls47ag12v3vm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
