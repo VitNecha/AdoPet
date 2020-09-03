@@ -20,10 +20,10 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         getChildFragmentManager().beginTransaction().add(R.id.settings_container, new SettingsList()).commit();
-        Configuration configuration = getResources().getConfiguration();
-        configuration.setLayoutDirection(new Locale("rtl"));
-        configuration.setLocale(new Locale("heb"));
-        getResources().updateConfiguration(configuration, getResources().getDisplayMetrics());
+        //Configuration configuration = getResources().getConfiguration();
+        //configuration.setLayoutDirection(new Locale("rtl"));
+        //configuration.setLocale(new Locale("heb"));
+        //getResources().updateConfiguration(configuration, getResources().getDisplayMetrics());
         return inflater.inflate(R.layout.fragment_settings, container,false);
     }
 }

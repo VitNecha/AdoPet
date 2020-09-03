@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Layout;
 import android.view.LayoutInflater;
@@ -17,12 +18,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.sdsmdg.tastytoast.TastyToast;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Locale;
 
-    private FirebaseAuth userAuth;
-    private FirebaseUser currentUser;
+public class MainActivity extends EntryActivity {
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -50,26 +52,39 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //Anonymous authentication
-        userAuth = FirebaseAuth.getInstance();
-        userAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    currentUser = userAuth.getCurrentUser();
-                    String uid = currentUser.getUid();
-                    TastyToast.makeText(getApplicationContext(), "Welcome " + uid, TastyToast.LENGTH_SHORT,TastyToast.SUCCESS);
-                }
-                else {
-                    TastyToast.makeText(getApplicationContext(),"Ooops", TastyToast.LENGTH_SHORT,TastyToast.ERROR);
-                }
-            }
-        });
+        initLang();
+        database = FirebaseFirestore.getInstance();
+        anonymousAuth();
 
         BottomNavigationView bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(navListener);
         bottomNavigation.setSelectedItemId(R.id.navigation_home);
     }
 
+    // Language and text direction initialization
+    private void initLang(){
+        //Language configuration
+        Configuration configuration = getResources().getConfiguration();
+        configuration.setLayoutDirection(new Locale("rtl"));
+        configuration.setLocale(new Locale("heb"));
+        getResources().updateConfiguration(configuration, getResources().getDisplayMetrics());
+    }
+
+    //Anonymous authentication
+    private void anonymousAuth(){
+        userAuth = FirebaseAuth.getInstance();
+        userAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    currentUser = userAuth.getCurrentUser();
+                    String uid = currentUser.getUid(); // (TEMP - Delete before release)
+                    TastyToast.makeText(getApplicationContext(), "Welcome ", TastyToast.LENGTH_SHORT,TastyToast.SUCCESS);
+                }
+                else {
+                    TastyToast.makeText(getApplicationContext(),"Ooops", TastyToast.LENGTH_SHORT,TastyToast.ERROR);
+                }
+            }
+        });
+    }
 }
