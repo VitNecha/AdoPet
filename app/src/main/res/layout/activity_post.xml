@@ -9,6 +9,17 @@
     android:orientation="vertical"
     >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/post_date_text"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:textStyle="italic"
+        android:textSize="16sp"
+        android:layout_gravity="right"
+        android:text="DD/MM/YYYY"
+        />
     <ImageView
         android:layout_width="225dp"
         android:layout_height="225dp"
@@ -23,17 +34,52 @@
         android:id="@+id/post_name_text"
         android:text="DOGGO"
         android:textSize="34sp"
+        android:textColor="@color/appTextColor"
         android:layout_gravity="center_horizontal"
+        />
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/post_age_text"
+    android:text="Age:"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:textColor="@color/appTextColor"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/post_breed_text"
+        android:text="Breed:"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/appTextColor"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/post_source_text"
         android:text="Source: "
-        android:layout_marginStart="5sp"
-        android:layout_marginEnd="5sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/appTextColor"
         />
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/post_description_text"
+        android:text="Description:"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/appTextColor"
+        />
 
 </LinearLayout>

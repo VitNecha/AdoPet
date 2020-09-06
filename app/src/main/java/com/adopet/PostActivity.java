@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.adopet.R;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class PostActivity extends EntryActivity {
 
@@ -21,7 +22,8 @@ public class PostActivity extends EntryActivity {
         mainImg = findViewById(R.id.post_main_img);
         petName = findViewById(R.id.post_name_text);
         sourceName = findViewById(R.id.post_source_text);
+        database = FirebaseFirestore.getInstance();
         DocumentReference docRef = database.collection("dog_profiles").document("Doggo1");
-        ;
+
     }
 }
