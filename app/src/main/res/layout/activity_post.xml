@@ -7,79 +7,147 @@
     tools:context="com.adopet.PostActivity"
     android:background="@color/appBackground"
     android:orientation="vertical"
-    >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/post_date_text"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:textStyle="italic"
-        android:textSize="16sp"
-        android:layout_gravity="right"
-        android:text="DD/MM/YYYY"
-        />
+    android:textDirection="rtl"
+    android:nestedScrollingEnabled="true">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/appBackgroundSecondary"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/post_date_text"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:textSize="16sp"
+            android:text="DD/MM/YYYY"
+            android:drawableTop="@drawable/baseline_calendar_today_24"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/profile_dog_icon" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:textSize="17sp"
+            android:text="מיקום"
+            android:drawableTop="@drawable/baseline_location_on_24"
+            />
+    </FrameLayout>
     <ImageView
-        android:layout_width="225dp"
-        android:layout_height="225dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:id="@+id/post_main_img"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:src="@drawable/default_post_img" />
+        android:src="@drawable/default_post_img"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:id="@+id/post_name_text"
-        android:text="DOGGO"
+        android:text="דוגו"
         android:textSize="34sp"
         android:textColor="@color/appTextColor"
-        android:layout_gravity="center_horizontal"
-        />
-    <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/post_age_text"
-    android:text="Age:"
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
-    android:textSize="20sp"
-    android:textStyle="bold"
-    android:textColor="@color/appTextColor"
-    />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/post_breed_text"
-        android:text="Breed:"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/appTextColor"
-        />
+        android:layout_gravity="center_horizontal" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/post_source_text"
-        android:text="Source: "
+        android:id="@+id/post_age_text"
+        android:text="גיל:"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/appTextColor"
-        />
+        android:textColor="@color/appTextColor" />
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/post_breed_text"
+        android:text="גזע:"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/appTextColor"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/post_size_text"
+        android:text="גודל בבגרות:"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/appTextColor"/>
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/post_description_text"
-        android:text="Description:"
+        android:text="קצת עליי:"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/appTextColor"
-        />
+        android:textColor="@color/appTextColor"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/appBackgroundSecondary"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="בית אימוץ"
+            android:textAlignment="center"
+            android:textSize="24dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/post_source_name"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="שם:"
+            android:textSize="18sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/post_source_address"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="כתובת:"
+            android:textSize="18sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/post_source_phone"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="טלפון:"
+            android:textSize="18sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/post_source_hours"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="ימים ושעות פתיחה:"
+            android:textSize="18sp"/>
+    </LinearLayout>
 
 </LinearLayout>

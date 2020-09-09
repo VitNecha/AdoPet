@@ -6,14 +6,15 @@ import java.util.Date;
 public class PetProfile {
     private Image mainImg;
     private int age;
-    private String name, breed, description;
+    private String name, breed, description, size;
     private Date publishDate;
 
-    public PetProfile(Image img, int age, String name, String breed, Date date, String desc) {
+    public PetProfile(Image img, int age, String name, String breed, String size, Date date, String desc) {
         setMainImg(img);
         setAge(age);
         setName(name);
         setBreed(breed);
+        setSize(size);
         setPublishDate(date);
         setDescription(desc);
     }
@@ -24,4 +25,5 @@ public class PetProfile {
     public void setBreed(String breed) { this.breed = breed; }
     public void setPublishDate(Date publishDate) { this.publishDate = publishDate; }
     public void setDescription(String description) { this.description = description; }
+    public void setSize(String size) { this.size = size; }
 }

@@ -19,6 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 import com.sdsmdg.tastytoast.TastyToast;
 
 import java.util.Locale;
@@ -52,22 +53,14 @@ public class MainActivity extends EntryActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initLang();
+        //initLang();
         database = FirebaseFirestore.getInstance();
+        storage = FirebaseStorage.getInstance("gs://adopetdb.appspot.com/");
         anonymousAuth();
 
         BottomNavigationView bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(navListener);
         bottomNavigation.setSelectedItemId(R.id.navigation_home);
-    }
-
-    // Language and text direction initialization
-    private void initLang(){
-        //Language configuration
-        Configuration configuration = getResources().getConfiguration();
-        configuration.setLayoutDirection(new Locale("rtl"));
-        configuration.setLocale(new Locale("heb"));
-        getResources().updateConfiguration(configuration, getResources().getDisplayMetrics());
     }
 
     //Anonymous authentication

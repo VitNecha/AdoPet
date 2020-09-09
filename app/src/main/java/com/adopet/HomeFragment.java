@@ -21,8 +21,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         View v = inflater.inflate(R.layout.fragment_home, container,false);
         v.findViewById(R.id.test_button).setOnClickListener(this);
         return v;
-
-
     }
 
     @Override
@@ -32,10 +30,5 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity(),PostActivity.class));
                 break;
         }
-        /*
-        if (v.getId() == R.id.test_button) {
-            startActivity(new Intent(getActivity(),PostActivity.class));
-        }
-        */
     }
 }

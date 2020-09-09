@@ -9,13 +9,10 @@ import android.text.format.Time;
 public class SourceProfile {
     private Image sourceImg;
     private String name, region, info;
-    private Location location;
-    private Address address;
+    private String location;
+    private String address;
 
     public void setSourceImg(Image sourceImg) { this.sourceImg = sourceImg; }
-
-    public void setRegion(String region) {
-        this.region = region;
-
-    }
+    public void setRegion(String region) { this.region = region; }
+    public void setLocation(String location) { this.location = location; }
 }
