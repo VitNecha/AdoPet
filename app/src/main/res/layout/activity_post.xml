@@ -100,7 +100,7 @@
         android:textColor="@color/appTextColor"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="200dp"
         android:layout_marginTop="10dp"
         android:background="@color/appBackgroundSecondary"
         android:layout_marginStart="10dp"
@@ -147,6 +147,15 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:text="ימים ושעות פתיחה:"
+            android:textSize="18sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/post_source_info"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="קצת עלינו:"
             android:textSize="18sp"/>
     </LinearLayout>
 

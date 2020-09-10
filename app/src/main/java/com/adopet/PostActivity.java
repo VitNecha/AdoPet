@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.adopet.classes.PetProfile;
+import com.adopet.classes.SourceProfile;
 import com.example.adopet.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -27,37 +28,52 @@ public class PostActivity extends EntryActivity {
 
     private ImageView mainImg;
     private TextView petName, sourceName, sourceAddress, petAge, petBreed, petDesc;
+    private PetProfile profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
-        PetProfile profile;
+
+        //
         mainImg = findViewById(R.id.post_main_img);
         petName = findViewById(R.id.post_name_text);
-        sourceName = findViewById(R.id.post_source_name);
-        sourceAddress = findViewById(R.id.post_source_address);
         petAge = findViewById(R.id.post_age_text);
         petBreed = findViewById(R.id.post_breed_text);
         petDesc = findViewById(R.id.post_description_text);
-        database = FirebaseFirestore.getInstance();
-        storage = FirebaseStorage.getInstance("gs://adopetdb.appspot.com/");
+        sourceName = findViewById(R.id.post_source_name);
+        sourceAddress = findViewById(R.id.post_source_address);
+        //
+
+    }
+    private void extractProfile(){
         final DocumentReference docRef = database.collection("dog_profiles").document("Doggo1");
-        final DocumentReference sourceRef;
-        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
-            public void onEvent(@Nullable DocumentSnapshot doc, @Nullable FirebaseFirestoreException error) {
-                if (error == null){
-                    StorageReference storageRef = storage.getReference("gs://adopetdb.appspot.com/dog_profile_images/Dog1.jpg");
-                    storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            public void onSuccess(DocumentSnapshot docSnap) {
+                if (docSnap.exists()){
+                    //Set pet profile
+                    profile.setName(docSnap.getString("Name"));
+                    profile.setAge(docSnap.getDouble("AgeNum").intValue(),docSnap.getString("AgeType"));
+                    profile.setBreed(docSnap.getString("Breed"));
+                    profile.setDescription(docSnap.getString("Description"));
+
+                    //Set source profile
+                    DocumentReference srcRef = docSnap.getDocumentReference("Source");
+                    srcRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
-                        public void onSuccess(Uri uri) {
-                            Picasso.get().load(uri.toString()).into(mainImg);
+                        public void onSuccess(DocumentSnapshot srcDocSnap) {
+                            if (srcDocSnap.exists()) {
+                                profile.getSource().setName(srcDocSnap.getString("Name"));
+                                profile.getSource().setAddress(srcDocSnap.getString("Address"));
+                                //TODO//
+                            }
                         }
                     });
-                    petName.setText(doc.getString(FieldPath.of("Name").toString()));
                 }
             }
         });
+
     }
 }
