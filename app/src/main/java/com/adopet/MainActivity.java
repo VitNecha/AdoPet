@@ -54,30 +54,12 @@ public class MainActivity extends EntryActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //initLang();
-        database = FirebaseFirestore.getInstance();
-        storage = FirebaseStorage.getInstance("gs://adopetdb.appspot.com/");
-        anonymousAuth();
+
+        //anonymousAuth();
 
         BottomNavigationView bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(navListener);
         bottomNavigation.setSelectedItemId(R.id.navigation_home);
     }
 
-    //Anonymous authentication
-    private void anonymousAuth(){
-        userAuth = FirebaseAuth.getInstance();
-        userAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    currentUser = userAuth.getCurrentUser();
-                    String uid = currentUser.getUid(); // (TEMP - Delete before release)
-                    TastyToast.makeText(getApplicationContext(), "Welcome ", TastyToast.LENGTH_SHORT,TastyToast.SUCCESS);
-                }
-                else {
-                    TastyToast.makeText(getApplicationContext(),"Ooops", TastyToast.LENGTH_SHORT,TastyToast.ERROR);
-                }
-            }
-        });
-    }
 }
