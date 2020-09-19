@@ -37,7 +37,7 @@ public class PostActivity extends EntryActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
         //
-        mainImg = findViewById(R.id.post_main_img);
+        mainImg = (ImageView) findViewById(R.id.post_main_img);
         petName = findViewById(R.id.post_name_text);
         petAge = findViewById(R.id.post_age_text);
         petSize = findViewById(R.id.post_size_text);
@@ -75,7 +75,6 @@ public class PostActivity extends EntryActivity {
                 }
             }
         });
-
     }
 
     private void displayProfile(PetProfile profile){
@@ -90,6 +89,11 @@ public class PostActivity extends EntryActivity {
         sourcePhone.setText(sourcePhone.getText().toString() + " " + profile.getSourceProfile().getPhone());
         sourceRegion.setText(profile.getSourceProfile().getRegion());
         sourceInfo.setText(sourceInfo.getText().toString() + " " + profile.getSourceProfile().getInfo());
-        Picasso.get().load(profile.getMainImg()).into(mainImg);
+        String temp = profile.getMainImg();
+        temp.toString();
+        storage.getInstance();
+
+        String tempUri = "https://firebasestorage.googleapis.com/v0/b/adopetdb.appspot.com/o/dog_profile_images%2FDog1.jpg?alt=media&token=554d7a94-d2f6-434a-a0db-8aa7356d2d8d";
+        Picasso.get().load(tempUri).into(mainImg);
     }
 }
