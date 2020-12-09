@@ -96,4 +96,6 @@ public class PostActivity extends EntryActivity {
         String tempUri = "https://firebasestorage.googleapis.com/v0/b/adopetdb.appspot.com/o/dog_profile_images%2FDog1.jpg?alt=media&token=554d7a94-d2f6-434a-a0db-8aa7356d2d8d";
         Picasso.get().load(tempUri).into(mainImg);
     }
+
 }
+
